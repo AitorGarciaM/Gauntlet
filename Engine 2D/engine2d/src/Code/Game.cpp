@@ -23,7 +23,7 @@ void Game::reinit()
 
 void Game::update()
 {
-	_inputManager->update();
+	//_inputManager->update();
 
 	_world->update();
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "Pawn.h"
+#include "Weapon.h"
 class Player : public Pawn 
 {
 	bool _beginAnimation;
@@ -8,6 +9,7 @@ class Player : public Pawn
 	AudioManager* _audioManager;
 	Input* _inputManager;
 	Vector _velocity;
+	Weapon* _amo[4];
 	float _speed;
 	int _initialFrame;
 	int _idMusic;
@@ -21,11 +23,15 @@ class Player : public Pawn
 
 	void movement();
 	void windowCollision();
+
+	void shoot();
 	
 
 public:
 	Player();
 	~Player();
+	
+	Weapon* getAmo(int pos) { return _amo[pos]; }
 	void init();
 	void update();
 	void render();

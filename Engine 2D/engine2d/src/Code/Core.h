@@ -19,7 +19,7 @@ enum Keys
 
 enum KeysFlagDown
 {
-	ButtonDownZ, ButtonDownE,
+	ButtonDownZ, ButtonDownE, ButtonDownSpace,
 	LastkeyFlagDown
 };
 

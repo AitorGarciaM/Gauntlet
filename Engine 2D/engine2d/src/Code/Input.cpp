@@ -43,6 +43,10 @@ void Input::update()
 			{
 				_keysFlagDown[ButtonDownE] = true;
 			}
+			if (test_event.key.keysym.scancode == SDL_SCANCODE_SPACE)
+			{
+				_keysFlagDown[ButtonDownSpace] = true;
+			}
 			break;
 		case SDL_KEYUP:
 			//std::cout << test_event.key.keysym.scancode << std::endl;
@@ -70,14 +74,14 @@ void Input::update()
 			{
 				mousePos.x = test_event.motion.x;
 				mousePos.y = test_event.motion.y;
-				_keys[2] = true;
+				
 				std::cout << test_event.motion.x << " " << test_event.motion.y << std::endl;
 			}
 			break;
 		case SDL_MOUSEBUTTONUP:
 			if (test_event.button.button == SDL_BUTTON_LEFT) 
 			{
-				_keys[2] = false;
+				
 			}
 			break;
 		case SDL_QUIT:

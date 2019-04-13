@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{087B44B0-B4B9-42F9-95CD-2279D012A2BD}</ProjectGuid>
     <RootNamespace>engine2d</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -137,6 +137,7 @@
     <ClCompile Include="src\Code\Time.cpp" />
     <ClCompile Include="src\Code\TallyScreen.cpp" />
     <ClCompile Include="src\Code\World.cpp" />
+    <ClCompile Include="src\Code\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Code\Pawn.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="src\Code\Time.h" />
     <ClInclude Include="src\Code\TallyScreen.h" />
     <ClInclude Include="src\Code\World.h" />
+    <ClInclude Include="src\Code\Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

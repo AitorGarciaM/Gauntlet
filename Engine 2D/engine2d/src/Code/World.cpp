@@ -8,7 +8,16 @@ void World::init()
 	// hacer una clase para cargar las entidades por código mediante un xml.
 
 	Player* tempPlayer = new Player();
+	Weapon* tempAmo;
+
 	_entities.push_back(tempPlayer);
+
+	for(int i = 0; i < 4; i++)
+	{
+		tempAmo = tempPlayer->getAmo(i);
+		_entities.push_back(tempAmo);
+	}
+
 
 	for (int i = 0; i < _entities.size(); i++)
 	{

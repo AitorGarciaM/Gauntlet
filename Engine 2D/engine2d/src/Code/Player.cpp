@@ -4,7 +4,10 @@
 
 Player::Player()
 {
-	init();
+	for (int i = 0; i < 4; i++)
+	{
+		_amo[i] = new Weapon();
+	}
 }
 
 
@@ -56,6 +59,10 @@ void Player::update()
 void Player::render()
 {
 	_resManager->DrawInWindow(_idSprite, _bounds, _pos);
+	//for (int i = 0; i < 4; i++)
+	//{
+		//_amo[i]->render();
+	//}
 }
 
 void Player::startAnimation()
@@ -151,6 +158,11 @@ void Player::movement()
 		_velocity.x += _speed;
 	}
 
+	if (_inputManager->getKeyFlagDown(ButtonDownSpace))
+	{
+		shoot();
+	}
+
 	_pos = _velocity;
 }
 
@@ -171,6 +183,18 @@ void Player::windowCollision()
 	if (_pos.y + _bounds.h >= WINDOW_HEIGHT)
 	{
 		_velocity.y = WINDOW_HEIGHT - _bounds.h;
+	}
+}
+
+void Player::shoot()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (!_amo[i]->getActive())
+		{
+			_amo[i]->shoot(_pos, _initialFrame);
+			break;
+		}
 	}
 }
 
