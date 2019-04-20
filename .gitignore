@@ -32,6 +32,11 @@
 *.app
 
 # Folders
-Debug/
-Resources/
-.vs/
+Engine 2D/.vs/
+Engine 2D/Debug/
+Engine 2D/engine2d/Resources/Images
+Engine 2D/engine2d/Resources/Sounds
+Engine 2D/engine2d/Debug/
+Engine 2D/engine2d/engine2d.vcxproj
+Engine 2D/engine2d/engine2d.filters
+Engine 2D/engine2d/engine2d.user
