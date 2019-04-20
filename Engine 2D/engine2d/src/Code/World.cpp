@@ -1,5 +1,6 @@
 #include "World.h"
 #include "Player.h"
+#include "Enemy.h"
 
 
 
@@ -9,8 +10,13 @@ void World::init()
 
 	Player* tempPlayer = new Player();
 	Weapon* tempAmo;
+	Enemy* tempEnemi = new Enemy();
+	_map = new Map();
+
+	_map->init();
 
 	_entities.push_back(tempPlayer);
+	_entities.push_back(tempEnemi);
 
 	for(int i = 0; i < 4; i++)
 	{
@@ -36,6 +42,8 @@ void World::update()
 
 void World::render()
 {
+	_map->render();
+
 	for (size_t i = 0; i < _entities.size(); i++)
 	{
 		_entities[i]->render();
