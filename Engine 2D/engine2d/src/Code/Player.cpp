@@ -27,8 +27,8 @@ void Player::init()
 	_musicPath = "./Resources/Sounds/Music.mp3";
 	_idSprite = _resManager->getTextureID(_path.c_str());
 
-	_pos.x = WINDOW_WIDTH / 2;
-	_pos.y = WINDOW_HEIGHT / 2;
+	_pos.x = WINDOW_WIDTH / 8;
+	_pos.y = WINDOW_HEIGHT / 6;
 
 	_initialFrame = 4;
 	_currentFrame = _initialFrame;
