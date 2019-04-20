@@ -47,7 +47,7 @@ ResourceManager::ResourceManager()
 	_window = SDL_CreateWindow("Gauntlet", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
 	_renderer = SDL_CreateRenderer(_window, -1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-	SDL_SetRenderDrawColor(_renderer, 0xFF, 0xFF, 0xFF, 0xFF);	
+	SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 0);	
 }
 
 
