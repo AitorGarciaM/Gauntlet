@@ -32,6 +32,6 @@
 *.app
 
 # Folders
-/Debug
-/Resources
-/.vs
+Debug/
+Resources/
+.vs/
