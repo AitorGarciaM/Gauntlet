@@ -17,6 +17,7 @@ class Enemy : public Pawn
 	void animate();
 public:
 	void init();
+	void input() {};
 	void update();
 	void render();
 	void setTarget(Entity* target) { _target = target; }

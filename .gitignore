@@ -1,6 +1,11 @@
 # Prerequisites
 *.d
 
+#temporales
+*.suo
+*.VC.db
+
+
 # Compiled Object files
 *.slo
 *.lo

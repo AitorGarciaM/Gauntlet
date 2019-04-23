@@ -10,6 +10,7 @@ class Weapon : public Entity
 	Time* _time;
 public:
 	void init();
+	void input() {};
 	void update();
 	void render();
 	void shoot(Vector pos, int dir);

@@ -17,6 +17,12 @@ class Map
 
 	std::vector<int> _idData;
 public:
+	int getTileWidth() { return _tileWidth; }
+	int getTileHeight() { return _tileHeight; }
+	int getMapWidth() { return _width; }
+	int getMapHeight() { return _height; }
+	std::vector<int>* getIDData() { return &_idData; }
+
 	void init();
 	void render();
 	Map();

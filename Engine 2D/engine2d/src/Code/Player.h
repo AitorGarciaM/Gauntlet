@@ -31,8 +31,14 @@ public:
 	Player();
 	~Player();
 	
+	void setPosition(Vector position) { _pos = position; }
+	void setVelocity(Vector newVelocity) { _velocity = newVelocity; }
+
 	Weapon* getAmo(int pos) { return _amo[pos]; }
+	Vector getVelocity() { return _velocity; }
+	
 	void init();
+	void input();
 	void update();
 	void render();
 };

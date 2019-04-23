@@ -27,8 +27,8 @@ void Player::init()
 	_musicPath = "./Resources/Sounds/Music.mp3";
 	_idSprite = _resManager->getTextureID(_path.c_str());
 
-	_pos.x = WINDOW_WIDTH / 8;
-	_pos.y = WINDOW_HEIGHT / 6;
+	//_pos.x = WINDOW_WIDTH / 8;
+	//_pos.y = WINDOW_HEIGHT / 6;
 
 	_initialFrame = 4;
 	_currentFrame = _initialFrame;
@@ -49,10 +49,35 @@ void Player::init()
 	
 }
 
+void Player::input()
+{
+	if (_inputManager->getKeyDown(DownArrow))
+	{
+		_velocity.y += _speed;
+	}
+	if (_inputManager->getKeyDown(UpArrow))
+	{
+		_velocity.y -= _speed;
+	}
+	if (_inputManager->getKeyDown(LeftArrow))
+	{
+		_velocity.x -= _speed;
+	}
+	if (_inputManager->getKeyDown(RightArrow))
+	{
+		_velocity.x += _speed;
+	}
+
+	if (_inputManager->getKeyFlagDown(ButtonDownSpace))
+	{
+		shoot();
+	}
+}
+
 void Player::update()
 {
-	movement();
 	windowCollision();
+	movement();
 	startAnimation();
 }
 
@@ -141,48 +166,29 @@ void Player::animation()
 
 void Player::movement()
 {
-	if (_inputManager->getKeyDown(DownArrow))
-	{
-		_velocity.y += _speed;
-	}
-	if(_inputManager->getKeyDown(UpArrow))
-	{
-		_velocity.y -= _speed;
-	}
-	if (_inputManager->getKeyDown(LeftArrow))
-	{
-		_velocity.x -= _speed;
-	}
-	if (_inputManager->getKeyDown(RightArrow))
-	{
-		_velocity.x += _speed;
-	}
+	_pos.x += _velocity.x;
+	_pos.y += _velocity.y;
 
-	if (_inputManager->getKeyFlagDown(ButtonDownSpace))
-	{
-		shoot();
-	}
-
-	_pos = _velocity;
+	_velocity = { 0,0 };
 }
 
 void Player::windowCollision()
 {
-	if (_pos.x <= 0)
+	if (_pos.x <= 0 && _velocity.x < 0)
 	{
 		_velocity.x = 0;
 	}
-	if (_pos.x + _bounds.w >= WINDOW_WIDTH)
+	if (_pos.x + _bounds.w >= WINDOW_WIDTH && _velocity.x > 0)
 	{
-		_velocity.x = WINDOW_WIDTH - _bounds.w;
+		_velocity.x =0;
 	}
-	if (_pos.y <= 0)
+	if (_pos.y <= 0 && _velocity.y < 0)
 	{
 		_velocity.y = 0;
 	}
-	if (_pos.y + _bounds.h >= WINDOW_HEIGHT)
+	if (_pos.y + _bounds.h >= WINDOW_HEIGHT && _velocity.y > 0)
 	{
-		_velocity.y = WINDOW_HEIGHT - _bounds.h;
+		_velocity.y = 0;
 	}
 }
 
