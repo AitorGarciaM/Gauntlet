@@ -9,9 +9,14 @@ void Game::init()
 	_inputManager = Input::getInstance();
 	_audioManager = AudioManager::getInstance();
 
-	_world = new World();
+	_dungeon = new World();
+	_camera = new Camera();
 
-	_world->init();
+	_dungeon->init();
+
+	_camera->init(_dungeon->getPlayer());
+	_camera->setWorldWidth(_dungeon->getWidth());
+	_camera->setWorldHeight(_dungeon->getHeight());
 
 	_restart = false;
 }
@@ -25,12 +30,13 @@ void Game::update()
 {
 	//_inputManager->update();
 
-	_world->update();
+	_dungeon->update();
+	_camera->update();
 }
 
 void Game::render()
 {
-	_world->render();
+	_dungeon->render();
 	ResourceManager::getInstance()->updateWindow();
 	//Time::getInstance()->delay();
 	ResourceManager::getInstance()->clearWindow();

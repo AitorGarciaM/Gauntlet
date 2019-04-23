@@ -12,6 +12,11 @@ public:
 	void update();
 	void render();
 	void mapColision();
+
+	Entity* getPlayer() { return _entities[_idPlayer]; }
+
+	int getWidth() { return _map->getMapWidth(); }
+	int getHeight() { return _map->getMapHeight(); }
 	World();
 	~World();
 };

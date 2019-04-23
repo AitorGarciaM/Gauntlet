@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "Engine.h"
 #include "World.h"
+#include "Camera.h"
 
 class Game :
 	public Scene
@@ -13,7 +14,8 @@ private:
 	ResourceManager* _resManager;
 	AudioManager* _audioManager;
 
-	World* _world;
+	World* _dungeon;
+	Camera* _camera;
 
 	void init();
 	void reinit();

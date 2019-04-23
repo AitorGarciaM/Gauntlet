@@ -30,13 +30,6 @@ void Map::init()
 
 	_data = dataElement->GetText();
 
-	std::cout << "map width: " << _width << "\n"
-		<< "map height: " << _height << "\n"
-		<< "tile width: " << _tileWidth << "\n"
-		<< "tile height: " << _tileHeight << "\n"
-		<< "firstgid: " << _firsgid << "\n"
-		<< "_data: " << _data << std::endl;
-
 	int posComa = 0;
 	int i = 0;
 	int counter = 0;
