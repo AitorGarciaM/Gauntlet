@@ -33,6 +33,14 @@ struct Vector
 {
 	int x;
 	int y;
+
+	Vector zero()
+	{
+		x = 0; y = 0;
+		Vector r = { x, y };
+
+		return r;
+	}
 };
 
 struct Scuare

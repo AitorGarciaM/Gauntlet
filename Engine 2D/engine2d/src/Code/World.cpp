@@ -79,14 +79,36 @@ void World::mapColision()
 	newPosition.x = playerPos.x + playerVelocity.x;
 	newPosition.y = playerPos.y + playerVelocity.y;
 	
-	int posX = newPosition.x / _map->getTileWidth();
-	int posY = newPosition.y / _map->getTileHeight();
+	int posX = 0;
+	int posY = 0;
 
-	int id = posY * _map->getMapWidth() + posX;
+	int id = 0;
 
+	if (tempPlayer->getVelocity().x > 0 || tempPlayer->getVelocity().y > 0)
+	{
+		posX = (newPosition.x + tempPlayer->getBounds().w) / _map->getTileWidth();
+		posY = (newPosition.y + tempPlayer->getBounds().h) / _map->getTileHeight();
+
+		if (tempPlayer->getVelocity().x > 0)
+		{
+			id = posY * _map->getMapWidth() + posX;
+		}
+		else if (tempPlayer->getVelocity().y > 0)
+		{
+			id = posY * _map->getMapWidth() + posX;
+		}
+	}
+	else
+	{
+		posX = newPosition.x / _map->getTileWidth();
+		posY = newPosition.y / _map->getTileHeight();
+
+		id = (posY * _map->getMapWidth() + posX);
+	}
+	
 	if ((_mapCollision->at(id) - 1) > 1)
 	{
-		tempPlayer->setVelocity({0,0});
+		tempPlayer->setVelocity(tempPlayer->getVelocity().zero());
 	}
 }
 
