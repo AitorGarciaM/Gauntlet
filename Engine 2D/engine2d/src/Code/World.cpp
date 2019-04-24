@@ -71,44 +71,50 @@ void World::mapColision()
 	Vector playerPos = _entities[_idPlayer]->getPosition();
 
 	Player* tempPlayer = (Player*)_entities[_idPlayer];	
-	Vector newPosition;
+	Vector newPosition = {playerPos.x,playerPos.y};
 	Vector playerVelocity;
 
 	playerVelocity = { tempPlayer->getVelocity().x,tempPlayer->getVelocity().y };
 
-	newPosition.x = playerPos.x + playerVelocity.x;
-	newPosition.y = playerPos.y + playerVelocity.y;
-	
-	int posX = 0;
-	int posY = 0;
-
-	int id = 0;
-
-	if (tempPlayer->getVelocity().x > 0 || tempPlayer->getVelocity().y > 0)
+	if (playerVelocity.x > 0)
 	{
-		posX = (newPosition.x + tempPlayer->getBounds().w) / _map->getTileWidth();
-		posY = (newPosition.y + tempPlayer->getBounds().h) / _map->getTileHeight();
-
-		if (tempPlayer->getVelocity().x > 0)
-		{
-			id = posY * _map->getMapWidth() + posX;
-		}
-		else if (tempPlayer->getVelocity().y > 0)
-		{
-			id = posY * _map->getMapWidth() + posX;
-		}
+		newPosition.x = playerPos.x + playerVelocity.x / playerVelocity.x;
 	}
-	else
-	{
-		posX = newPosition.x / _map->getTileWidth();
-		posY = newPosition.y / _map->getTileHeight();
 
-		id = (posY * _map->getMapWidth() + posX);
+	if (playerVelocity.y > 0)
+	{
+		newPosition.y = playerPos.y + playerVelocity.y / playerVelocity.y;
 	}
 	
-	if ((_mapCollision->at(id) - 1) > 1)
+	Scuare collision;
+
+	// calculo la posición de las esquinas en el array.
+	collision.x = newPosition.x / _map->getTileWidth();
+	collision.y = newPosition.y / _map->getTileHeight();
+	collision.w = (newPosition.x + tempPlayer->getBounds().w) / _map->getTileWidth();
+	collision.h = (newPosition.y + tempPlayer->getBounds().h) / _map->getTileHeight();
+
+	// controlo si la esquina va a una pared.
+
+	int posA; // Esquina arriba izquierda.
+	int posB; // Esquina arriba derecha.
+	int posC; // Esquina abajo izquierda.
+	int posD; // Esquina abajo derecha.
+
+	posA = std::round(collision.y * _map->getMapWidth() + collision.x);
+	posB = std::round(collision.y * _map->getMapWidth() + collision.w);
+	posC = std::round(collision.h * _map->getMapWidth() + collision.x);
+	posD = std::round(collision.h * _map->getMapWidth() + collision.w);
+
+	std::cout << "x: " << collision.x << "\n"
+			  << "y: " << collision.y << "\n"
+			  << "w: " << collision.w << "\n"
+			  << "h: " << collision.h << "\n" 
+			  << std::endl;
+
+	if ((_map->getIDData()->at(posA) > 2 && playerVelocity.x < 0) || (_map->getIDData()->at(posC) > 2 && playerVelocity.y > 0) || (_map->getIDData()->at(posB) > 2 && playerVelocity.y < 0) || (_map->getIDData()->at(posD) > 2 && playerVelocity.x > 0))
 	{
-		tempPlayer->setVelocity(tempPlayer->getVelocity().zero());
+		tempPlayer->setVelocity({0, 0});
 	}
 }
 
