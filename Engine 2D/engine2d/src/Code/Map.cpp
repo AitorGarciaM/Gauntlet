@@ -44,14 +44,14 @@ void Map::init()
 	}
 }
 
-void Map::render()
+void Map::render(Scuare cameraBounds)
 {
-	for (int y = 0; y < _width; y++)
+	for (int y = 0; y < 50; y++)
 	{
-		for (int x = 0; x < _height; x++)
+		for (int x = 0; x < 50; x++)
 		{
-			int xTrg = _tileWidth * x;
-			int yTrg = _tileHeight * y;
+			int xTrg = _tileWidth * x - cameraBounds.x;
+			int yTrg = _tileHeight * y - cameraBounds.y;
 
 			int id = _idData[y * _width + x];
 			

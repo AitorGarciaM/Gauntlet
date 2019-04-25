@@ -14,6 +14,8 @@ private:
 	ResourceManager* _resManager;
 	AudioManager* _audioManager;
 
+	
+
 	World* _dungeon;
 	Camera* _camera;
 

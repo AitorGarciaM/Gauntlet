@@ -45,7 +45,7 @@ void World::update()
 		_entities[i]->input();
 	}
 	
-	mapColision();
+	//mapColision();
 
 	for (size_t i = 0; i < _entities.size(); i++)
 	{
@@ -56,9 +56,9 @@ void World::update()
 	
 }
 
-void World::render()
+void World::render(Scuare cameraBounds)
 {
-	_map->render();
+	_map->render(cameraBounds);
 
 	for (size_t i = 0; i < _entities.size(); i++)
 	{

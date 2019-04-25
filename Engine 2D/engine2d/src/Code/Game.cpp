@@ -36,7 +36,7 @@ void Game::update()
 
 void Game::render()
 {
-	_dungeon->render();
+	_dungeon->render(_camera->getBounds());
 	ResourceManager::getInstance()->updateWindow();
 	//Time::getInstance()->delay();
 	ResourceManager::getInstance()->clearWindow();

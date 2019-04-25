@@ -10,7 +10,7 @@ class World
 public:
 	void init();
 	void update();
-	void render();
+	void render(Scuare cameraBounds);
 	void mapColision();
 
 	Entity* getPlayer() { return _entities[_idPlayer]; }

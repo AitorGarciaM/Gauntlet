@@ -24,7 +24,7 @@ public:
 	std::vector<int>* getIDData() { return &_idData; }
 
 	void init();
-	void render();
+	void render(Scuare cameraBounds);
 	Map();
 	~Map();
 };

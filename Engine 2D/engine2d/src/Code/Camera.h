@@ -4,6 +4,8 @@
 
 class Camera
 {
+	float _limitSup;
+	float _limitInf;
 	Entity* _target;
 
 	Scuare _bounds;
