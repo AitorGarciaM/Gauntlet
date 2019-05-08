@@ -68,7 +68,7 @@ void Map::render(Scuare cameraBounds)
 			bounds.y = yTile * _tileHeight;
 			bounds.w = _tileWidth;
 			bounds.h = _tileHeight;
-			Vector pos = { xTrg,yTrg };
+			Vector pos = { xTrg, yTrg};
 
 			_resManager->DrawInWindow(_spriteId, bounds, pos);
 		}

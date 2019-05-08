@@ -1,6 +1,7 @@
 #pragma once
 #include "Pawn.h"
 #include "Weapon.h"
+#include "Camera.h"
 class Player : public Pawn 
 {
 	bool _beginAnimation;
@@ -25,6 +26,8 @@ class Player : public Pawn
 	void windowCollision();
 
 	void shoot();
+
+	Camera* _camera;
 	
 
 public:
@@ -33,6 +36,7 @@ public:
 	
 	void setPosition(Vector position) { _pos = position; }
 	void setVelocity(Vector newVelocity) { _velocity = newVelocity; }
+	void setCamera(Camera* cam) { _camera = cam; }
 
 	Weapon* getAmo(int pos) { return _amo[pos]; }
 	Vector getVelocity() { return _velocity; }

@@ -4,7 +4,7 @@
 
 
 
-void World::init()
+void World::init(Camera* cam)
 {
 	// hacer una clase para cargar las entidades por código mediante un xml.
 
@@ -20,7 +20,7 @@ void World::init()
 	_entities.push_back(tempPlayer);
 	_idPlayer = _entities.size() -  1;
 	_entities.push_back(tempEnemi);
-	Vector initPlayerPos = {_map->getMapWidth(), _map->getMapHeight()};
+	Vector initPlayerPos = {50, 50};
 
 	tempPlayer->setPosition(initPlayerPos);
 
@@ -36,6 +36,8 @@ void World::init()
 		_entities[i]->init();
 	}
 	
+	tempPlayer->setCamera(cam);
+
 }
 
 void World::update()

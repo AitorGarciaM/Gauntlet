@@ -12,7 +12,7 @@ void Game::init()
 	_dungeon = new World();
 	_camera = new Camera();
 
-	_dungeon->init();
+	_dungeon->init(_camera);
 
 	_camera->init(_dungeon->getPlayer());
 	_camera->setWorldWidth(_dungeon->getWidth());

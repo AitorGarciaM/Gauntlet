@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Map.h"
+#include "Camera.h"
 class World
 {
 	int _idPlayer;
@@ -8,7 +9,7 @@ class World
 	Map* _map;
 	std::vector<int>* _mapCollision;
 public:
-	void init();
+	void init(Camera* cam);
 	void update();
 	void render(Scuare cameraBounds);
 	void mapColision();

@@ -83,7 +83,18 @@ void Player::update()
 
 void Player::render()
 {
-	_resManager->DrawInWindow(_idSprite, _bounds, _pos);
+
+	Vector renderPos = {0,0};
+
+	renderPos.x = _pos.x - _camera->getBounds().x;
+	renderPos.y = _pos.y - _camera->getBounds().y;
+
+	std::cout << "Player" << std::endl;
+	std::cout << "------" << std::endl;
+	std::cout << "X:" << renderPos.x << std::endl;
+	std::cout << "Y: " << renderPos.y << std::endl;
+
+	_resManager->DrawInWindow(_idSprite, _bounds, renderPos);
 	//for (int i = 0; i < 4; i++)
 	//{
 		//_amo[i]->render();
@@ -178,15 +189,15 @@ void Player::windowCollision()
 	{
 		_velocity.x = 0;
 	}
-	if (_pos.x + _bounds.w >= WINDOW_WIDTH && _velocity.x > 0)
+	if (_pos.x + _bounds.w >= _camera->getBounds().w && _velocity.x > 0)
 	{
-		_velocity.x =0;
+		_velocity.x = 0;
 	}
 	if (_pos.y <= 0 && _velocity.y < 0)
 	{
 		_velocity.y = 0;
 	}
-	if (_pos.y + _bounds.h >= WINDOW_HEIGHT && _velocity.y > 0)
+	if (_pos.y + _bounds.h >= _camera->getBounds().h && _velocity.y > 0)
 	{
 		_velocity.y = 0;
 	}
