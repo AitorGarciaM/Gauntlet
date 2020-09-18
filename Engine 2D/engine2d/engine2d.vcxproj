@@ -122,7 +122,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\Downloads\tinyxml2-master\tinyxml2-master\tinyxml2.cpp" />
+    <ClCompile Include="src\Code\Camera.cpp" />
     <ClCompile Include="src\Code\Map.cpp" />
     <ClCompile Include="src\Code\Enemy.cpp" />
     <ClCompile Include="src\Code\Pawn.cpp" />
@@ -144,7 +144,7 @@
     <ClCompile Include="src\Code\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\..\Downloads\tinyxml2-master\tinyxml2-master\tinyxml2.h" />
+    <ClInclude Include="src\Code\Camera.h" />
     <ClInclude Include="src\Code\Map.h" />
     <ClInclude Include="src\Code\Enemy.h" />
     <ClInclude Include="src\Code\Pawn.h" />

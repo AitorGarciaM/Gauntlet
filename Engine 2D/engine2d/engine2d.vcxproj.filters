@@ -69,10 +69,10 @@
     <ClCompile Include="src\Code\Map.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Downloads\tinyxml2-master\tinyxml2-master\tinyxml2.cpp">
+    <ClCompile Include="src\Code\Vendor\tinyxml2.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\Code\Vendor\tinyxml2.cpp">
+    <ClCompile Include="src\Code\Camera.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -134,10 +134,10 @@
     <ClInclude Include="src\Code\Map.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Downloads\tinyxml2-master\tinyxml2-master\tinyxml2.h">
+    <ClInclude Include="src\Code\Vendor\tinyxml2.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="src\Code\Vendor\tinyxml2.h">
+    <ClInclude Include="src\Code\Camera.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
