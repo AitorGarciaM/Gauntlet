@@ -78,10 +78,10 @@ void Camera::update()
 	_bounds.w = WINDOW_WIDTH + _bounds.x;
 	_bounds.h = WINDOW_HEIGHT + _bounds.y;
 
-	std::cout << "Camera" << std::endl;
+	/*std::cout << "Camera" << std::endl;
 	std::cout << "------" << std::endl;
 	std::cout << "X:" << _bounds.x << std::endl;
-	std::cout << "Y: " << _bounds.y << std::endl;
+	std::cout << "Y: " << _bounds.y << std::endl;*/
 }
 
 Camera::Camera()

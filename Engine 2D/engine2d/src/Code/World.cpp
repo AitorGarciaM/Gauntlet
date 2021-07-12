@@ -20,7 +20,7 @@ void World::init(Camera* cam)
 	_entities.push_back(tempPlayer);
 	_idPlayer = _entities.size() -  1;
 	_entities.push_back(tempEnemi);
-	Vector initPlayerPos = {50, 50};
+	Vector initPlayerPos = {32, 32};
 
 	tempPlayer->setPosition(initPlayerPos);
 
@@ -47,7 +47,7 @@ void World::update()
 		_entities[i]->input();
 	}
 	
-	//mapColision();
+	mapColision();
 
 	for (size_t i = 0; i < _entities.size(); i++)
 	{
@@ -70,31 +70,39 @@ void World::render(Scuare cameraBounds)
 
 void World::mapColision()
 {
-	Vector playerPos = _entities[_idPlayer]->getPosition();
+	Vector currentPlayerPos = _entities[_idPlayer]->getPosition();
 
 	Player* tempPlayer = (Player*)_entities[_idPlayer];	
-	Vector newPosition = {playerPos.x,playerPos.y};
+	Vector nextPlayerPosition = {currentPlayerPos.x,currentPlayerPos.y};
 	Vector playerVelocity;
 
 	playerVelocity = { tempPlayer->getVelocity().x,tempPlayer->getVelocity().y };
 
 	if (playerVelocity.x > 0)
 	{
-		newPosition.x = playerPos.x + playerVelocity.x / playerVelocity.x;
+		nextPlayerPosition.x = currentPlayerPos.x + tempPlayer->getSpeed();
+	}
+	else if (playerVelocity.x < 0)
+	{
+		nextPlayerPosition.x = currentPlayerPos.x - tempPlayer->getSpeed();
 	}
 
 	if (playerVelocity.y > 0)
 	{
-		newPosition.y = playerPos.y + playerVelocity.y / playerVelocity.y;
+		nextPlayerPosition.y = currentPlayerPos.y + tempPlayer->getSpeed();
+	}
+	else if (playerVelocity.y < 0)
+	{
+		nextPlayerPosition.y = currentPlayerPos.y - tempPlayer->getSpeed();
 	}
 	
 	Scuare collision;
 
 	// calculo la posición de las esquinas en el array.
-	collision.x = newPosition.x / _map->getTileWidth();
-	collision.y = newPosition.y / _map->getTileHeight();
-	collision.w = (newPosition.x + tempPlayer->getBounds().w) / _map->getTileWidth();
-	collision.h = (newPosition.y + tempPlayer->getBounds().h) / _map->getTileHeight();
+	collision.x = (nextPlayerPosition.x) / _map->getTileWidth();
+	collision.y = (nextPlayerPosition.y) / _map->getTileHeight();
+	collision.w = (nextPlayerPosition.x + (tempPlayer->getBounds().w)) / _map->getTileWidth();
+	collision.h = (nextPlayerPosition.y + (tempPlayer->getBounds().h)) / _map->getTileHeight();
 
 	// controlo si la esquina va a una pared.
 
@@ -108,15 +116,31 @@ void World::mapColision()
 	posC = std::round(collision.h * _map->getMapWidth() + collision.x);
 	posD = std::round(collision.h * _map->getMapWidth() + collision.w);
 
-	std::cout << "x: " << collision.x << "\n"
-			  << "y: " << collision.y << "\n"
-			  << "w: " << collision.w << "\n"
-			  << "h: " << collision.h << "\n" 
+	std::cout << "posA " << posA << ": " << _map->getIDData()->at(posA) << "\n"
+			  << "posB " << posB << ": " << _map->getIDData()->at(posB) << "\n"
+			  << "posC " << posC << ": " << _map->getIDData()->at(posC) << "\n"
+			  << "posD " << posD << ": " << _map->getIDData()->at(posD) << "\n"
 			  << std::endl;
 
-	if ((_map->getIDData()->at(posA) > 2 && playerVelocity.x < 0) || (_map->getIDData()->at(posC) > 2 && playerVelocity.y > 0) || (_map->getIDData()->at(posB) > 2 && playerVelocity.y < 0) || (_map->getIDData()->at(posD) > 2 && playerVelocity.x > 0))
+	// Checks if player is colliding at left.
+	if (playerVelocity.x < 0 && (_map->getIDData()->at(posA) > 2 || _map->getIDData()->at(posC) > 2))
 	{
-		tempPlayer->setVelocity({0, 0});
+		tempPlayer->setVelocity({ 0, 0});
+	}
+	// Checks if player is colliding at right
+	if (playerVelocity.x > 0 && (_map->getIDData()->at(posB) > 2 || _map->getIDData()->at(posD) > 2))
+	{
+		tempPlayer->setVelocity({ 0, 0});
+	}
+	// Checks if player is colliding at down
+	if (playerVelocity.y > 0 && (_map->getIDData()->at(posC) > 2 || _map->getIDData()->at(posD) > 2))
+	{
+		tempPlayer->setVelocity({ 0, 0 });
+	}
+	// Checks if player is colliding at up.
+	if (playerVelocity.y < 0 && (_map->getIDData()->at(posA) > 2 || _map->getIDData()->at(posB) > 2))
+	{
+		tempPlayer->setVelocity({ 0, 0 });
 	}
 }
 

@@ -1,4 +1,11 @@
-﻿  Camera.cpp
-c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\camera.cpp(46): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\camera.cpp(55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+﻿  World.cpp
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(34): warning C4018: '<': signed/unsigned mismatch
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(83): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(87): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(92): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(96): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(114): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(115): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(116): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\jgait\documents\dev\visual c++\gauntlet\engine 2d\engine2d\src\code\world.cpp(117): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   engine2d.vcxproj -> C:\Users\jgait\Documents\DEV\Visual C++\Gauntlet\Engine 2D\Debug\engine2d.exe

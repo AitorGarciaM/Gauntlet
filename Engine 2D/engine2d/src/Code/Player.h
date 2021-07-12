@@ -40,6 +40,7 @@ public:
 
 	Weapon* getAmo(int pos) { return _amo[pos]; }
 	Vector getVelocity() { return _velocity; }
+	float getSpeed() { return _speed; }
 	
 	void init();
 	void input();

@@ -45,7 +45,7 @@ void Player::init()
 	_speed = 3;
 
 	_idMusic = _audioManager->getSoundId(_musicPath.c_str());
-	_audioManager->playSound(_idMusic, -1);
+	//_audioManager->playSound(_idMusic, -1);
 	
 }
 
@@ -88,17 +88,18 @@ void Player::render()
 
 	renderPos.x = _pos.x - _camera->getBounds().x;
 	renderPos.y = _pos.y - _camera->getBounds().y;
-
-	std::cout << "Player" << std::endl;
+	
+	/*std::cout << "Player" << std::endl;
 	std::cout << "------" << std::endl;
-	std::cout << "X:" << renderPos.x << std::endl;
-	std::cout << "Y: " << renderPos.y << std::endl;
+	std::cout << "X:" << _pos.x << std::endl;
+	std::cout << "Y: " << _pos.y << std::endl;*/
 
 	_resManager->DrawInWindow(_idSprite, _bounds, renderPos);
-	//for (int i = 0; i < 4; i++)
-	//{
-		//_amo[i]->render();
-	//}
+
+	for (int i = 0; i < 4; i++)
+	{
+		_amo[i]->render();
+	}
 }
 
 void Player::startAnimation()

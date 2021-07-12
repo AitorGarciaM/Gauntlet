@@ -1,8 +1,6 @@
 #include "Game.h"
 #include "SceneManager.h"
 
-
-
 void Game::init()
 {
 	_resManager = ResourceManager::getInstance();
@@ -28,23 +26,20 @@ void Game::reinit()
 
 void Game::update()
 {
-	//_inputManager->update();
-
 	_dungeon->update();
-	_camera->update();
+	_camera->update();	
 }
 
 void Game::render()
 {
 	_dungeon->render(_camera->getBounds());
 	ResourceManager::getInstance()->updateWindow();
-	//Time::getInstance()->delay();
 	ResourceManager::getInstance()->clearWindow();
 }
 
 Game::Game()
 {
-	init();
+
 }
 
 

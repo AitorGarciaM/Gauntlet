@@ -37,8 +37,8 @@ void Map::init()
 	{
 		
 		i = posComa;
-		posComa = _data.find(',', posComa + 1);		
-		_idData.push_back(std::stoi(_data.substr(i+1,posComa-1)));	
+		posComa = _data.find(',', posComa + 1);
+		_idData.push_back(std::stoi(_data.substr(i+1,posComa-1)));
 
 		counter++;
 	}

@@ -1,5 +1,9 @@
 #include "Engine.h"
 
+
+#include <conio.h>
+#include<Windows.h>
+
 int main(int argv, char*args[])
 {
 	SceneManager* _sceneManager = SceneManager::getInstance();
@@ -27,6 +31,8 @@ int main(int argv, char*args[])
 		{
 			_sceneManager->getCurrentScene()->render();
 		}
+
+
 	}
 
 	return 0;
